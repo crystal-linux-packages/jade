@@ -4,17 +4,17 @@ pkgname=jade
 pkgver=1.0.8
 pkgrel=1
 pkgdesc="Scriptable backend & TUI Installer for Crystal Linux"
-license=('GPL3')
+license=('GPLv3')
 arch=('x86_64')
-url="https://github.com/crystal-linux/jade"
-license=('Nolicense')
-source=("git+$url")
+url="https://github.com/crystal-linux/$pkgname"
+license=('GPL')
+source=("git+$url?rev=v$pkgver")
 sha256sums=('SKIP')
 depends=('parted')
 makedepends=('cargo')
 
 build() {
-    cd ${srcdir}/jade
+    cd ${srcdir}/${pkgname}
     cargo build --release
 }
 
