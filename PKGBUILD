@@ -8,18 +8,18 @@ license=('GPLv3')
 arch=('x86_64')
 url="https://github.com/crystal-linux/$pkgname"
 license=('GPL')
-source=("git+$url#tag=v$pkgver")
+source=("jade-$pkgver-$pkgrel::git+$url#tag=v$pkgver")
 sha256sums=('SKIP')
 depends=('parted')
 makedepends=('cargo')
 
 build() {
-    cd ${srcdir}/${pkgname}
+    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
     cargo build --release
 }
 
 package() {
     mkdir -p $pkgdir/usr/bin
-    chmod +x ${srcdir}/jade/target/release/jade
-    cp ${srcdir}/jade/target/release/jade  $pkgdir/usr/bin/.
+    chmod +x ${srcdir}/$pkgname-$pkgver-$pkgrel/target/release/jade
+    cp ${srcdir}/$pkgname-$pkgver-$pkgrel/target/release/jade  $pkgdir/usr/bin/.
 }
