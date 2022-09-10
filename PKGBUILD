@@ -2,7 +2,7 @@
 
 pkgname=jade
 pkgver=1.1.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Scriptable backend & TUI Installer for Crystal Linux"
 license=('GPLv3')
 arch=('x86_64')
@@ -21,5 +21,5 @@ build() {
 package() {
     mkdir -p $pkgdir/usr/bin
     chmod +x ${srcdir}/$pkgname-$pkgver-$pkgrel/target/release/jade
-    cp ${srcdir}/$pkgname-$pkgver-$pkgrel/target/release/jade  $pkgdir/usr/bin/.
+    install --mode +x ${srcdir}/$pkgname-$pkgver-$pkgrel/target/release/jade  $pkgdir/usr/bin/.
 }
