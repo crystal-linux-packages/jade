@@ -1,7 +1,7 @@
 # Maintainer: Matt C <matt[at]getcryst[dot]al>
 
 pkgname=jade
-pkgver=1.1.4
+pkgver=1.2.0
 pkgrel=1
 pkgdesc="Scriptable backend & TUI Installer for Crystal Linux"
 license=('GPLv3')
