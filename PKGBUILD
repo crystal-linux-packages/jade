@@ -1,25 +1,24 @@
-# Maintainer: Matt C <matt[at]getcryst[dot]al>
+# Maintainer: echo -n 'bWF0dEBnZXRjcnlzdC5hbA==' | base64 -d
+# Contributor: echo -n 'cmNhbmRhdUBnZXRjcnlzdC5hbA==' | base64 -d
 
 pkgname=jade
 pkgver=1.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Scriptable backend & TUI Installer for Crystal Linux"
-license=('GPLv3')
 arch=('x86_64')
-url="https://github.com/crystal-linux/$pkgname"
-license=('GPL')
-source=("jade-$pkgver-$pkgrel::git+$url#tag=v$pkgver")
-sha256sums=('SKIP')
+url="https://github.com/crystal-linux/${pkgname}"
+license=('GPL3')
 depends=('parted')
 makedepends=('cargo')
+source=("${pkgname}-${pkgver}::${url}/archive/v${pkgver}.tar.gz")
+sha256sums=('fcf1b168e14c0903572d45b9a16a241a2b72edf2f496745502c7edf24ba3ee62')
 
 build() {
-    cd "$srcdir/$pkgname-$pkgver-$pkgrel"
+    cd "${srcdir}/${pkgname}-${pkgver}"
     cargo build --release
 }
 
 package() {
-    mkdir -p $pkgdir/usr/bin
-    chmod +x ${srcdir}/$pkgname-$pkgver-$pkgrel/target/release/jade
-    install --mode +x ${srcdir}/$pkgname-$pkgver-$pkgrel/target/release/jade  $pkgdir/usr/bin/.
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    install -Dm 755 "target/release/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
 }
