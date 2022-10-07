@@ -13,9 +13,16 @@ makedepends=('cargo')
 source=("${pkgname}-${pkgver}::${url}/archive/v${pkgver}.tar.gz")
 sha256sums=('fcf1b168e14c0903572d45b9a16a241a2b72edf2f496745502c7edf24ba3ee62')
 
+prepare() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    cargo fetch --locked --target "${CARCH}-unknown-linux-gnu"
+}
+
 build() {
     cd "${srcdir}/${pkgname}-${pkgver}"
-    cargo build --release
+    export RUSTUP_TOOLCHAIN=stable
+    export CARGO_TARGET_DIR=target
+    cargo build --frozen --release
 }
 
 package() {
