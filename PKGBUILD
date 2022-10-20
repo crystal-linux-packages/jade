@@ -3,7 +3,7 @@
 # Contributor: echo -n 'Um9iaW4gQy4gPHJjYW5kYXVAZ2V0Y3J5c3QuYWw+' | base64 -d
 
 pkgname=jade
-pkgver=1.2.1
+pkgver=1.2.2
 pkgrel=1
 pkgdesc="Scriptable backend & TUI Installer for Crystal Linux"
 arch=('x86_64')
@@ -12,7 +12,7 @@ license=('GPL3')
 depends=('parted')
 makedepends=('cargo')
 source=("${pkgname}-${pkgver}::${url}/archive/v${pkgver}.tar.gz")
-sha256sums=('c2e7aa037d975b13df6189123fef96414469171633e4282ab5110f96401ebbe2')
+sha256sums=('bd4c8ca3f3894c2e815703086b7c7f5de74c3f944931078ca4bf2e3764e9db1e')
 
 prepare() {
     cd "${srcdir}/${pkgname}-${pkgver}"
