@@ -1,9 +1,10 @@
-# Maintainer: echo -n 'bWF0dEBnZXRjcnlzdC5hbA==' | base64 -d
-# Contributor: echo -n 'cmNhbmRhdUBnZXRjcnlzdC5hbA==' | base64 -d
+# Maintainer:  echo -n 'TWF0dCBDLiA8bWF0dEBnZXRjcnlzdC5hbD4='     | base64 -d
+# Contributor: echo -n 'TWljaGFsIFMuIDxtaWNoYWxAZ2V0Y3J5c3QuYWw+' | base64 -d
+# Contributor: echo -n 'Um9iaW4gQy4gPHJjYW5kYXVAZ2V0Y3J5c3QuYWw+' | base64 -d
 
 pkgname=jade
-pkgver=1.2.0
-pkgrel=2
+pkgver=1.2.1
+pkgrel=1
 pkgdesc="Scriptable backend & TUI Installer for Crystal Linux"
 arch=('x86_64')
 url="https://github.com/crystal-linux/${pkgname}"
@@ -11,7 +12,7 @@ license=('GPL3')
 depends=('parted')
 makedepends=('cargo')
 source=("${pkgname}-${pkgver}::${url}/archive/v${pkgver}.tar.gz")
-sha256sums=('fcf1b168e14c0903572d45b9a16a241a2b72edf2f496745502c7edf24ba3ee62')
+sha256sums=('c2e7aa037d975b13df6189123fef96414469171633e4282ab5110f96401ebbe2')
 
 prepare() {
     cd "${srcdir}/${pkgname}-${pkgver}"
